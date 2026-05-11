@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đăng nhập</title>
+    <style type="text/css">
+        body {
+            width: 40%;
+            margin: 0 auto;
+            font-family: arial, sans-serif;
+            line-height: 1.5;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .left {
+            width: 40%;
+            float: left;
+        }
+        .right {
+            width: 60%;
+            float: left;
+        }
+        h3 {
+            text-align: center;
+        }
+        .thongbao {
+            color: red;
+        }
+    </style>
+    <script type="application/javascript">
+    	function loat(){
+    		document.formdn.hoten.fucus();
+    		document.getElementById("dangnhap").disabled="true;"
+    	}
+        function kiemTra() {
+            let hoten = document.getElementById("hoten").value;
+            let matkhau = document.getElementById("matkhau").value;
+            if (hoten == "") {
+                document.getElementById("Username").innerHTML = "Bạn chưa nhập tên đăng nhập";
+            } else {
+                document.getElementById("Username").innerHTML = "";
+            }
+            if (matkhau == "") {
+                document.getElementById("password").innerHTML = "Bạn chưa nhập mật khẩu";
+            } else if (matkhau.length < 8) {
+                document.getElementById("password").innerHTML = "Mật khẩu ít nhất 8 ký tự";
+            } else {
+                document.getElementById("password").innerHTML = "";
+            }
+            if (hoten!=""&&matkhau!=""&matkhau>=8) {
+                alert("Đăng nhập thành công!");
+            }
+        } 
+    </script>
+</head>
+<body onload="load()">
+    <form name="f1" onsubmit="return false;">
+        <h3>ĐĂNG NHẬP</h3>
+        <div class="left">
+            <label>Tên đăng nhập:</label><br>
+            <label>Mật khẩu:</label>
+        </div>
+        <div class="right">
+            <input type="text" name="hoten" id="hoten" onblur="fales";><br>
+            <span  class="thongbao" id="Username"></span>           
+            <input type="password" name="matkhau" id="matkhau"><br>
+            <span class="thongbao" id="password"></span> <br>        
+            <button id="dn" type="button" onclick="kiemTra()" disabled>Đăng nhập</button>
+        </div>
+    </form>
+</body>
+</html>
